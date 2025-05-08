@@ -1,0 +1,309 @@
+
+/* =======================================================================
+   FRESH COAST THEME
+   — лёгкая морская палитра с плавными тенями и аккуратной центровкой
+   ======================================================================= */
+
+/* ----------- CSS‑переменные ----------- */
+:root {
+  --clr-bg-1: #e6f7ff; /* нежно‑голубой фон страницы */
+  --clr-bg-2: #ffffffcc; /* полупрозрачные карточки */
+  --clr-primary: #0077b6; /* насыщенный сине‑бирюзовый */
+  --clr-primary-dark: #023e8a; /* тёмный океанический акцент */
+  --clr-accent: #ffb703; /* солнечный жёлто‑оранжевый */
+  --clr-accent-2: #8ac926; /* контрастный лаймовый */
+  --clr-danger: #e63946; /* свежий красный */
+  --clr-warning: #ff9f1c; /* тёплый янтарный */
+  --clr-muted: #6c757d; /* спокойный серый */
+
+  --radius-s: 0.5rem;
+  --radius-m: 1rem;
+  --radius-l: 2rem;
+
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.12);
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ----------- Сброс и базовые стили ----------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background: radial-gradient(
+    circle at 50% 0%,
+    #caf0f8 0%,
+    var(--clr-bg-1) 60%
+  );
+  color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  line-height: 3;
+}
+
+/* ----------- Layout ----------- */
+.wrapper {
+  width: 100%;
+  max-width: 1500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* ----------- Карточки с эффектом стекла ----------- */
+.card {
+  width: 100%;
+  background: var(--clr-bg-2);
+  backdrop-filter: blur(12px) saturate(120%);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-soft);
+  padding: 2.5rem 2rem;
+}
+
+/* ----------- Header ----------- */
+.header {
+  width: 100%;
+  background: linear-gradient(
+    120deg,
+    var(--clr-primary),
+    var(--clr-primary-dark)
+  );
+  color: #fff;
+  border-radius: var(--radius-l);
+  padding: 1.2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__brand {
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.header__link {
+  background: var(--clr-accent);
+  color: #111;
+  text-decoration: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: var(--radius-s);
+  font-weight: 600;
+  transition: var(--transition);
+}
+.header__link:hover {
+  filter: brightness(0.95);
+}
+
+/* ----------- Alerts ----------- */
+.alert {
+  width: 100%;
+  border-radius: var(--radius-s);
+  padding: 0.9rem 1.2rem;
+  font-weight: 600;
+}
+.alert--error {
+  background: #ffe5e5;
+  color: var(--clr-danger);
+}
+.alert--success {
+  background: #e6ffed;
+  color: #147451;
+}
+
+/* ----------- Form ----------- */
+.form {
+  display: grid;
+  gap: 1.4rem;
+}
+.form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+.form__label {
+  font-weight: 600;
+  color: var(--clr-muted);
+}
+.form__input {
+  padding: 0.9rem 1.1rem;
+  border: 2px solid #d9e4ec;
+  border-radius: var(--radius-s);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+.form__input:focus {
+  border-color: var(--clr-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.25);
+}
+
+
+/* ----------- Buttons ----------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.6rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-s);
+  cursor: pointer;
+  transition: var(--transition);
+  background-color: #023e8a;
+  color: #e6f7ff;
+  margin: 5px;
+}
+.btn--primary {
+  background: var(--clr-primary);
+}
+.btn--primary:hover {
+  background: var(--clr-primary-dark);
+}
+.btn--accent {
+  background: var(--clr-accent-2);
+  color: #111;
+}
+.btn--accent:hover {
+  filter: brightness(0.9);
+}
+.btn--danger {
+  background: var(--clr-danger);
+}
+.btn--danger:hover {
+  filter: brightness(0.9);
+}
+.btn--warning {
+  background: var(--clr-warning);
+  color: #111;
+}
+.btn--warning:hover {
+  filter: brightness(0.92);
+}
+.btn--ghost {
+  background: transparent;
+  color: var(--clr-primary);
+  border: 2px solid var(--clr-primary);
+}
+.btn--ghost:hover {
+  background: var(--clr-primary);
+  color: #fff;
+}
+
+/* ----------- Table ----------- */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  text-align: left;
+}
+.table thead {
+  background: var(--clr-primary-dark);
+  color: #fff;
+}
+.table th,
+.table td {
+  padding: 1rem 0.8rem;
+  border-bottom: 1px solid #dfe7ee;
+}
+.table tbody tr:nth-child(odd) {
+  background: #f2f7fa;
+}
+.table tbody tr:hover {
+  background: #e0f1ff;
+}
+.table__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+/* ----------- Modal ----------- */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition);
+}
+.modal--open {
+  opacity: 1;
+  pointer-events: all;
+}
+.modal__box {
+  width: min(100%, 480px);
+  background: #fff;
+  padding: 2.2rem 2.4rem;
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ----------- Animations ----------- */
+@keyframes pop {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.modal--open .modal__box {
+  animation: pop 0.4s ease-out;
+}
+
+/* ----------- Helpers ----------- */
+.text-center {
+  text-align: center;
+}
+.mt-1 {
+  margin-top: 1rem;
+}
+.mt-2 {
+  margin-top: 2rem;
+}
+.btn-submit {
+  background: linear-gradient(135deg, #06d6a0, #38b000);
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.8rem;
+  box-shadow: 0 8px 20px rgba(6, 214, 160, 0.25);
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 7px;
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(6, 214, 160, 0.4);
+}
+
+.btn-submit:active {
+  transform: scale(0.98);
+  box-shadow: 0 6px 16px rgba(6, 214, 160, 0.3);
+}
